@@ -29,13 +29,13 @@ contract AdvancedCollectible is ERC721, VRFConsumerBase {
 
     }
 
-    function fullfillRandomness(bytes32 requestId, uint256 randomNumber) internal override{
+    function fulfillRandomness(bytes32 requestId, uint256 randomNumber) internal override {
         Breed breed = Breed(randomNumber % 3);
         uint256 newTokenId = tokenCounter;
         tokenIdToBreed[newTokenId] = breed;
         emit breedAssigned(newTokenId, breed);
         address owner = requestIdToSender[requestId];
-        _safeMint(owner,newTokenId);
+        _safeMint(owner, newTokenId);
         tokenCounter = tokenCounter + 1;
     }
 
