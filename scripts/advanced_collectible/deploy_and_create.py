@@ -1,6 +1,10 @@
-from scripts.helpful_scripts import get_account, opensea_url, get_contract
 from brownie import AdvancedCollectible, network, config
-
+from scripts.helpful_scripts import (
+    get_account,
+    opensea_url,
+    get_contract,
+    fund_with_link,
+)
 
 def deploy_and_create():
     account = get_account()
@@ -11,7 +15,7 @@ def deploy_and_create():
         config["networks"][network.show_active()]["fee"],
         {"from": account}
     )
-    
+    fund
 
 def main():
     deploy_and_create()
