@@ -44,8 +44,6 @@ def get_contract(contract_name):
         contract = Contract.from_abi(contract_type._name, contract_address,contract_type.abi)
     return contract
 
-Decimals = 8
-InitialValue = 250000000000
 
 def deploy_mocks():
     """
